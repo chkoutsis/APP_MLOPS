@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MLOPS KOUTSIS</title>
+</head>
+<body>
+
+    <h1>Prediction</h1>
+
+    <form method="post" action="/predict">
+        <input type="file" name="json_file" accept=".json" required="required"> 
+        <input type="submit" value="Predict"><br><br>
+    </form>
+    <br>
+    <br>
+    {% if result %}
+        <p>UserID: {{ result }}</p>
+    {% elif result == ''%}
+        <p>Wrong model name.</p>
+    {% endif %}
+
+
+</body>
+</html>
