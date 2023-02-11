@@ -38,16 +38,16 @@ def predict():
     ''' Making the prediction '''
     if df.iloc[0,0] == 'SVM':
         loaded_rf = joblib.load("./models/svm_model.joblib")
-        y_pred = loaded_rf.predict(df.drop(['Model'], axis=1))
-        return render_template('index.html',result=y_pred.item())
+        y_pred = int(loaded_rf.predict(df.drop(['Model'], axis=1)).item())
+        return render_template('index.html',result=y_pred)
     elif df.iloc[0,0] == 'RF':
         loaded_rf = joblib.load("./models/rf_model.joblib")
-        y_pred = loaded_rf.predict(df.drop(['Model'], axis=1))
-        return render_template('index.html',result=y_pred.item())
+        y_pred = int(loaded_rf.predict(df.drop(['Model'], axis=1)).item())
+        return render_template('index.html',result=y_pred)
     elif df.iloc[0,0] == 'XGB':
         loaded_rf = joblib.load("./models/xgb_model.joblib")
-        y_pred = loaded_rf.predict(df.drop(['Model'], axis=1))
-        return render_template('index.html',result=y_pred.item())
+        y_pred = int(loaded_rf.predict(df.drop(['Model'], axis=1)).item())
+        return render_template('index.html',result=y_pred)
     else: return render_template('index.html',result='')
     
 
